@@ -15,13 +15,15 @@
   --surface-2:#202b3a;
   --ink:#e8eef7;
   --ink-2:#c7d3e3;
-  --muted:#9fb0c8;
+  --muted:#b4c2d7;
+  --muted-strong:#c9d5e6;
   --rule:#2d3b4f;
   --accent:#4ea1ff;
   --accent-2:#2dd4bf;
   --gold:#f59e0b;
   --sage:#34d399;
   --danger:#fb7185;
+  --brand-fill:#5c6777;
   --paper:var(--bg);
   --paper-2:var(--surface-2);
   --shadow:0 8px 24px rgba(0,0,0,.35);
@@ -36,19 +38,20 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans',sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--ink);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{font-size:15px}
 .wrap{max-width:1280px;margin:0 auto;padding:28px 24px 96px}
 section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
 .top-header{position:sticky;top:0;z-index:50;height:var(--header-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:0 24px;border-bottom:1px solid var(--rule);background:rgba(15,19,25,.92);backdrop-filter:blur(8px)}
 [data-theme="light"] .top-header{background:rgba(238,242,247,.92)}
 .top-title{font-weight:600;font-size:14px;letter-spacing:.01em}
 .top-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.top-nav a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted);text-decoration:none;padding:5px 8px;border:1px solid transparent;border-radius:999px}
+.top-nav a{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong);text-decoration:none;padding:5px 8px;border:1px solid transparent;border-radius:999px;line-height:1.35}
 .top-nav a:hover{color:var(--ink);border-color:var(--rule)}
 .top-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px}
-.snapshot{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-2)}
-.btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;padding:6px 10px;border-radius:8px;cursor:pointer}
+.snapshot{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-2)}
+.btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;padding:6px 10px;border-radius:8px;cursor:pointer;line-height:1.35}
 .masthead{border:1px solid var(--rule);border-radius:14px;background:var(--surface);padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;box-shadow:var(--shadow)}
-.eyebrow,.masthead .meta,.sec-kicker,.sec-no,.onpage th,.tbl th{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow,.masthead .meta,.sec-kicker,.sec-no,.onpage th,.tbl th{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.065em;text-transform:uppercase;line-height:1.35}
 .eyebrow,.sec-kicker,.sec-no{color:var(--muted)}
 .masthead h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,4.5vw,60px);line-height:1.02}
 .masthead h1 em{color:var(--accent);font-style:italic}
@@ -60,58 +63,82 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
 .card{padding:18px 14px;display:flex;flex-direction:column;min-height:260px;position:relative;cursor:pointer;transition:.2s}
 .card:hover{transform:translateY(-2px);border-color:var(--accent)}
 .card:focus-visible{outline:2px solid var(--accent)}
-.card .rank{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)}
+.card .rank{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong)}
 .card h3{font-weight:600;font-size:17px}
-.card .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.card .tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;line-height:1.35}
 .card .big{font-family:'IBM Plex Mono',monospace;font-size:34px;margin-top:auto}
-.card .big-label,.card .kv span:first-child{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)}
+.card .big-label,.card .kv span:first-child{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong);line-height:1.35}
 .card .kv{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-top:1px solid rgba(159,176,200,.18)}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .bar-row{display:grid;grid-template-columns:140px 1fr 90px;gap:12px;align-items:center}.bar-list{display:flex;flex-direction:column;gap:12px}
-.bar-row .lbl,.stack-row .lbl,.mix-lbl,.bar-row .val{font-family:'IBM Plex Mono',monospace;font-size:11px}
+.bar-row .lbl,.stack-row .lbl,.mix-lbl,.bar-row .val{font-family:'IBM Plex Mono',monospace;font-size:11.8px;line-height:1.35;color:var(--muted-strong)}
 .bar-row .track{height:22px;background:var(--surface-2);border:1px solid var(--rule)}.bar-row .fill{height:100%;background:var(--accent)}
 .bar-list.rust .fill{background:var(--gold)}
-.stack-row,.mix-row,.bl-row{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;margin-bottom:10px}
-.stack-bar,.mix-bar,.bl-stripe{display:flex;height:26px;border:1px solid var(--rule);overflow:hidden;background:var(--surface-2)}
-.stack-bar span,.mix-seg span,.bl-seg span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#fff;padding:0 6px}
+.stack-row,.mix-row,.bl-row{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;margin-bottom:14px}
+.stack-bar,.mix-bar,.bl-stripe{display:flex;height:32px;border:1px solid var(--rule);overflow:visible;background:var(--surface-2);border-radius:8px}
+.stack-bar span,.mix-seg span,.bl-seg span{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#f5f8ff;padding:0 8px;line-height:1.35}
+.stack-bar,.mix-bar{position:relative}
+.stack-seg,.mix-seg,.bl-seg{display:flex;align-items:center;min-width:0}
+.stack-nb{background:var(--accent)}
+.stack-br{background:var(--brand-fill)}
+.stack-seg.left{justify-content:flex-start}
+.stack-seg.right{justify-content:flex-end}
+.out-pill{position:absolute;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.35;color:var(--ink);background:var(--surface);padding:2px 8px;border:1px solid var(--rule);border-radius:999px;white-space:nowrap}
+.out-pill.left{left:4px;transform:translate(-100%,-50%)}
+.out-pill.right{right:4px;transform:translate(100%,-50%)}
+.stack-breakdown,.mix-breakdown{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong);line-height:1.4;margin-top:4px}
 .c-utility{background:var(--ink)}
-.c-home{background:var(--muted)}
-.c-news{background:var(--accent)}
-.c-prediction{background:var(--gold)}
-.c-editorial{background:var(--sage)}
-.c-other{background:#64748b}
-.c-transac{background:var(--accent-2)}
-.c-community{background:#7A4F2E}
-.bl-editorial{background:var(--ink)}
+.c-home{background:#65748f}
+.c-news{background:#2e8fff}
+.c-prediction{background:#c98218}
+.c-editorial{background:#178a5c}
+.c-other{background:#475569}
+.c-transac{background:#0f8f82}
+.c-community{background:#7a4f2e}
+.bl-editorial{background:#344256}
 .bl-pr{background:var(--accent)}
-.bl-dir{background:var(--gold)}
-.bl-affiliate{background:var(--accent-2)}
+.bl-dir{background:#a46912}
+.bl-affiliate{background:#0e8074}
 .drawer .kv{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-top:1px solid rgba(159,176,200,.18)}
 .drawer .kv span:first-child{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)}
-.onpage thead th .arch{display:block;margin-top:4px;font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:500;line-height:1.3;color:var(--ink)}
+.onpage thead th .arch{display:block;margin-top:4px;font-family:'IBM Plex Sans',sans-serif;font-size:11.5px;font-weight:500;line-height:1.35;color:var(--ink)}
 [data-theme="light"] .onpage thead th .arch{color:#0f223d}
 .onpage thead th .url{display:block;margin-top:2px}
 .onpage thead th .url a{display:inline-block;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);text-decoration:none}
 .onpage thead th .url a:hover{text-decoration:underline;color:var(--ink)}
-.matrix-wrap{border:1px solid var(--rule);padding:48px;background:var(--surface);border-radius:12px;position:relative;min-height:460px}
-.matrix-grid{position:absolute;inset:48px;background-image:linear-gradient(to right,rgba(159,176,200,.14) 1px,transparent 1px),linear-gradient(to bottom,rgba(159,176,200,.14) 1px,transparent 1px);background-size:10% 25%;border:1px solid var(--rule)}
-.matrix-dot .name{font-size:12px;font-weight:600}.matrix-dot .desc,.matrix-axis-x,.matrix-axis-y,.matrix-quad{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.matrix-wrap{border:1px solid var(--rule);padding:40px;background:var(--surface);border-radius:12px;position:relative;min-height:380px}
+.matrix-grid{position:absolute;inset:40px;background-image:linear-gradient(to right,rgba(159,176,200,.08) 1px,transparent 1px),linear-gradient(to bottom,rgba(159,176,200,.08) 1px,transparent 1px);background-size:10% 25%;border:1px solid rgba(159,176,200,.35)}
+.matrix-dot{position:absolute;z-index:3}
+.matrix-dot .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px rgba(78,161,255,.25)}
+.matrix-dot.media .dot{background:#4ea1ff}.matrix-dot.hybrid .dot{background:#f59e0b}.matrix-dot.affiliate .dot{background:#2dd4bf}.matrix-dot.product .dot{background:#fb7185}.matrix-dot.seo .dot{background:#9f7aea}
+.matrix-dot .name{font-size:13px;font-weight:600}
+.matrix-dot .name,.matrix-dot .desc{display:inline-block;background:rgba(26,35,48,.75);padding:2px 8px;border-radius:999px;margin-top:4px}
+[data-theme="light"] .matrix-dot .name,[data-theme="light"] .matrix-dot .desc{background:rgba(255,255,255,.85)}
+.matrix-dot .desc,.matrix-axis-x,.matrix-axis-y,.matrix-quad,.matrix-ticks span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong);text-transform:uppercase;letter-spacing:.055em;line-height:1.35}
+.matrix-ticks{position:absolute;inset:40px;pointer-events:none}
+.matrix-ticks span{position:absolute}
+.matrix-ticks .x1{left:30%;bottom:-24px}.matrix-ticks .x2{left:65%;bottom:-24px}.matrix-ticks .x3{left:95%;bottom:-24px;transform:translateX(-100%)}
+.matrix-ticks .y1{left:-14px;top:12%;transform:translateX(-100%)}.matrix-ticks .y2{left:-14px;top:51%;transform:translateX(-100%)}.matrix-ticks .y3{left:-14px;top:85%;transform:translateX(-100%)}
 .tbl,.onpage{width:100%;border-collapse:collapse}
-.tbl th,.tbl td,.onpage th,.onpage td{padding:10px 12px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;text-align:left}
+.tbl th,.tbl td,.onpage th,.onpage td{padding:12px 14px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);vertical-align:top;text-align:left}
 .tbl td:last-child,.onpage td:last-child,.onpage th:last-child{border-right:none}
-.tbl .pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:3px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--rule)}
+.tbl .pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:3px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--rule)}
 .tbl .pill.first{background:var(--accent);color:#fff;border-color:var(--accent)}
 .onpage-controls{display:flex;justify-content:flex-end;margin-bottom:10px}
-.toggle{display:inline-flex;gap:8px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-2)}
+.toggle{display:inline-flex;gap:8px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-2);line-height:1.35}
 .onpage-wrap{overflow:auto;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
-.onpage{min-width:1080px;font-size:12px}
+.onpage{min-width:1080px;font-size:13px}
 .onpage thead th{position:sticky;top:0;z-index:2;background:#111926;color:#dbe7fa}
 [data-theme="light"] .onpage thead th{background:#e7edf6;color:#122036}
-.onpage thead th:first-child,.onpage td.metric{position:sticky;left:0;z-index:3;background:var(--surface-2)}
+.onpage thead th:first-child,.onpage td.metric{position:sticky;left:0;z-index:3;background:#111926}
+[data-theme="light"] .onpage td.metric,[data-theme="light"] .onpage thead th:first-child{background:#e7edf6}
+.tbl{font-size:13px}
+.tbl thead th{font-size:12px}
+.onpage tbody tr:nth-child(even) td,.tbl tbody tr:nth-child(even) td{background:rgba(159,176,200,.06)}
 .onpage thead th:first-child{z-index:4}
-.onpage tbody .group-row td{background:var(--surface-2);font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;color:var(--accent)}
+.onpage tbody .group-row td{background:var(--surface-2);font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;color:var(--accent)}
 .onpage .rate{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 6px;border-radius:999px;border:1px solid}.onpage .rate.good{background:var(--sage);color:#fff}.onpage .rate.mid{background:var(--gold);color:#fff}.onpage .rate.bad{background:var(--danger);color:#fff}.onpage .rate.none{color:var(--muted);border-color:var(--rule)}
-.onpage .url,.foot{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)}
+.onpage .url,.foot{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong)}
 .onpage-lessons{grid-template-columns:1fr 1fr;margin-top:20px}
 .onpage-lessons>div{padding:18px}
 .onpage-lessons h4{font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-bottom:10px;text-transform:uppercase}
@@ -123,6 +150,19 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
 .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.2s;z-index:60}
 .drawer{position:fixed;top:0;right:-440px;height:100dvh;width:min(420px,92vw);background:var(--surface);border-left:1px solid var(--rule);z-index:70;padding:16px;transition:.25s;overflow:auto}
 .drawer.open{right:0}.drawer-overlay.open{opacity:1;pointer-events:auto}.drawer h3{font-size:22px}.drawer .close{float:right}
+.stack-legend,.mix-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px}
+.stack-legend div,.mix-legend div{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-strong);display:flex;align-items:center;gap:6px;line-height:1.35}
+.stack-legend i,.mix-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.bl-seg{border-right:1px solid rgba(255,255,255,.28)}
+.bl-seg:last-child{border-right:none}
+.bl-seg span{padding:0 10px}
+@media print{
+  :root{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--ink:#121212;--ink-2:#222;--muted:#333;--muted-strong:#333;--rule:#b8b8b8;--shadow:none}
+  body{background:#fff;color:#111}
+  .top-header,.drawer,.drawer-overlay,.onpage-controls{display:none!important}
+  .card,.opp,.onpage-lessons>div,.matrix-wrap,.onpage-wrap,.tbl{box-shadow:none}
+  section,.matrix-wrap,.onpage-wrap,.tbl,.mix-row,.stack-row,.bl-row,.onpage-lessons,.cards{break-inside:avoid;page-break-inside:avoid}
+}
 @media (max-width:1100px){.cards,.opps{grid-template-columns:repeat(2,1fr)}.top-header{grid-template-columns:1fr;gap:6px;height:auto;padding:8px 14px}.top-actions{justify-content:flex-start}.top-nav{justify-content:flex-start}.wrap{padding:18px 14px 60px}.grid-2{grid-template-columns:1fr}.tldr ul{grid-template-columns:1fr}.onpage thead th .url a{max-width:130px}}
 </style>
 </head>
@@ -269,43 +309,44 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
   <div>
     <div class="stack-row">
       <div class="lbl">cbssports.com</div>
-      <div class="stack-bar">
-        <div class="stack-nb" style="flex-basis:94.02%"><span>Non-brand 94%</span></div>
-        <div class="stack-br" style="flex-basis:5.98%"></div>
+      <div class="stack-bar" data-nb="94.02" data-br="5.98">
+        <div class="stack-seg stack-nb left" style="flex-basis:94.02%"><span></span></div>
+        <div class="stack-seg stack-br right" style="flex-basis:5.98%"><span></span></div>
       </div>
     </div>
     <div class="stack-row">
       <div class="lbl">dimers.com</div>
-      <div class="stack-bar">
-        <div class="stack-nb" style="flex-basis:76.17%"><span>Non-brand 76%</span></div>
-        <div class="stack-br" style="flex-basis:23.78%"><span>Brand 24%</span></div>
+      <div class="stack-bar" data-nb="76.17" data-br="23.78">
+        <div class="stack-seg stack-nb left" style="flex-basis:76.17%"><span></span></div>
+        <div class="stack-seg stack-br right" style="flex-basis:23.78%"><span></span></div>
       </div>
     </div>
     <div class="stack-row">
       <div class="lbl">covers.com</div>
-      <div class="stack-bar">
-        <div class="stack-nb" style="flex-basis:66.67%"><span>Non-brand 67%</span></div>
-        <div class="stack-br" style="flex-basis:30.32%"><span>Brand 30%</span></div>
+      <div class="stack-bar" data-nb="66.67" data-br="30.32">
+        <div class="stack-seg stack-nb left" style="flex-basis:66.67%"><span></span></div>
+        <div class="stack-seg stack-br right" style="flex-basis:30.32%"><span></span></div>
       </div>
     </div>
     <div class="stack-row">
       <div class="lbl">oddsshark.com</div>
-      <div class="stack-bar">
-        <div class="stack-nb" style="flex-basis:64.20%"><span>Non-brand 64%</span></div>
-        <div class="stack-br" style="flex-basis:35.80%"><span>Brand 36%</span></div>
+      <div class="stack-bar" data-nb="64.20" data-br="35.80">
+        <div class="stack-seg stack-nb left" style="flex-basis:64.20%"><span></span></div>
+        <div class="stack-seg stack-br right" style="flex-basis:35.80%"><span></span></div>
       </div>
     </div>
     <div class="stack-row">
       <div class="lbl">prizepicks.com</div>
-      <div class="stack-bar">
-        <div class="stack-nb" style="flex-basis:34.41%"><span>Non-brand 34%</span></div>
-        <div class="stack-br" style="flex-basis:65.59%"><span>Brand 66%</span></div>
+      <div class="stack-bar" data-nb="34.41" data-br="65.59">
+        <div class="stack-seg stack-nb left" style="flex-basis:34.41%"><span></span></div>
+        <div class="stack-seg stack-br right" style="flex-basis:65.59%"><span></span></div>
       </div>
     </div>
     <div class="stack-legend">
       <div><i style="background:var(--accent)"></i>Non-Brand (motor SEO)</div>
-      <div><i style="background:var(--ink)"></i>Brand (procura de marca)</div>
+      <div><i style="background:var(--brand-fill)"></i>Brand (procura de marca)</div>
     </div>
+    <div class="stack-breakdown"></div>
   </div>
 
   <div style="margin-top:24px;padding:18px 22px;background:var(--paper-2);border-left:3px solid var(--accent);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;font-style:italic;color:var(--ink-2)">
@@ -323,6 +364,10 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
 
   <div class="matrix-wrap">
     <div class="matrix-grid"></div>
+    <div class="matrix-ticks">
+      <span class="x1">30%</span><span class="x2">65%</span><span class="x3">95%</span>
+      <span class="y1">30M</span><span class="y2">1M</span><span class="y3">200K</span>
+    </div>
     <div class="matrix-axis-x">Brand-led  ←——  modelo aquisição  ——→  SEO-led</div>
     <div class="matrix-axis-y">Escala orgânica ↑</div>
     <div class="matrix-quad" style="top:56px;left:62px">↖ Operador com marca</div>
@@ -368,62 +413,61 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
     <div class="mix-row">
       <div class="mix-lbl">cbssports.com</div>
       <div class="mix-bar">
-        <div class="mix-seg c-utility" style="flex-basis:36%"><span>Utility 36%</span></div>
-        <div class="mix-seg c-news" style="flex-basis:27.5%"><span>News 28%</span></div>
-        <div class="mix-seg c-other" style="flex-basis:19.4%"><span>Other 19%</span></div>
-        <div class="mix-seg c-prediction" style="flex-basis:9.7%"><span>Predictions 10%</span></div>
-        <div class="mix-seg c-home" style="flex-basis:7.4%"><span>Home 7%</span></div>
+        <div class="mix-seg c-utility" style="flex-basis:36%" data-label="Utility" data-pct="36"><span></span></div>
+        <div class="mix-seg c-news" style="flex-basis:27.5%" data-label="News" data-pct="27.5"><span></span></div>
+        <div class="mix-seg c-other" style="flex-basis:19.4%" data-label="Other" data-pct="19.4"><span></span></div>
+        <div class="mix-seg c-prediction" style="flex-basis:9.7%" data-label="Predictions" data-pct="9.7"><span></span></div>
+        <div class="mix-seg c-home" style="flex-basis:7.4%" data-label="Home" data-pct="7.4"><span></span></div>
       </div>
     </div>
     <!-- covers top 100: Utility 33.4 / Predictions 22.3 / Home 16 / Editorial 13.8 / Community 7 / Other 6.1 / Transac 1.4 -->
     <div class="mix-row">
       <div class="mix-lbl">covers.com</div>
       <div class="mix-bar">
-        <div class="mix-seg c-utility" style="flex-basis:33.4%"><span>Utility 33%</span></div>
-        <div class="mix-seg c-prediction" style="flex-basis:22.3%"><span>Predictions 22%</span></div>
-        <div class="mix-seg c-home" style="flex-basis:16%"><span>Home 16%</span></div>
-        <div class="mix-seg c-editorial" style="flex-basis:13.8%"><span>Editorial 14%</span></div>
-        <div class="mix-seg c-community" style="flex-basis:7%"><span>Forum 7%</span></div>
-        <div class="mix-seg c-other" style="flex-basis:6.1%"><span>Other 6%</span></div>
-        <div class="mix-seg c-transac" style="flex-basis:1.4%"><span></span></div>
+        <div class="mix-seg c-utility" style="flex-basis:33.4%" data-label="Utility" data-pct="33.4"><span></span></div>
+        <div class="mix-seg c-prediction" style="flex-basis:22.3%" data-label="Predictions" data-pct="22.3"><span></span></div>
+        <div class="mix-seg c-home" style="flex-basis:16%" data-label="Home" data-pct="16"><span></span></div>
+        <div class="mix-seg c-editorial" style="flex-basis:13.8%" data-label="Editorial" data-pct="13.8"><span></span></div>
+        <div class="mix-seg c-community" style="flex-basis:7%" data-label="Forum" data-pct="7"><span></span></div>
+        <div class="mix-seg c-other" style="flex-basis:6.1%" data-label="Other" data-pct="6.1"><span></span></div>
+        <div class="mix-seg c-transac" style="flex-basis:1.4%" data-label="Transactional" data-pct="1.4"><span></span></div>
       </div>
     </div>
     <!-- oddsshark top 100: Predictions 51.2 / Home 17.1 / Utility 15.3 / Other 14.9 / Editorial 1.3 -->
     <div class="mix-row">
       <div class="mix-lbl">oddsshark.com</div>
       <div class="mix-bar">
-        <div class="mix-seg c-prediction" style="flex-basis:51.2%"><span>Computer Picks 51%</span></div>
-        <div class="mix-seg c-home" style="flex-basis:17.1%"><span>Home 17%</span></div>
-        <div class="mix-seg c-utility" style="flex-basis:15.3%"><span>Utility 15%</span></div>
-        <div class="mix-seg c-other" style="flex-basis:14.9%"><span>Other 15%</span></div>
-        <div class="mix-seg c-editorial" style="flex-basis:1.3%"><span></span></div>
+        <div class="mix-seg c-prediction" style="flex-basis:51.2%" data-label="Computer Picks" data-pct="51.2"><span></span></div>
+        <div class="mix-seg c-home" style="flex-basis:17.1%" data-label="Home" data-pct="17.1"><span></span></div>
+        <div class="mix-seg c-utility" style="flex-basis:15.3%" data-label="Utility" data-pct="15.3"><span></span></div>
+        <div class="mix-seg c-other" style="flex-basis:14.9%" data-label="Other" data-pct="14.9"><span></span></div>
+        <div class="mix-seg c-editorial" style="flex-basis:1.3%" data-label="Editorial" data-pct="1.3"><span></span></div>
       </div>
     </div>
     <!-- prizepicks top 100: Home 55.8 / Editorial 21.1 / Transac 14.5 / Other 5.8 / Predictions 2.8 -->
     <div class="mix-row">
       <div class="mix-lbl">prizepicks.com</div>
       <div class="mix-bar">
-        <div class="mix-seg c-home" style="flex-basis:55.8%"><span>Home 56%</span></div>
-        <div class="mix-seg c-editorial" style="flex-basis:21.1%"><span>Playbook 21%</span></div>
-        <div class="mix-seg c-transac" style="flex-basis:14.5%"><span>Login/Help 15%</span></div>
-        <div class="mix-seg c-other" style="flex-basis:5.8%"><span>Other 6%</span></div>
-        <div class="mix-seg c-prediction" style="flex-basis:2.8%"><span></span></div>
+        <div class="mix-seg c-home" style="flex-basis:55.8%" data-label="Home" data-pct="55.8"><span></span></div>
+        <div class="mix-seg c-editorial" style="flex-basis:21.1%" data-label="Playbook" data-pct="21.1"><span></span></div>
+        <div class="mix-seg c-transac" style="flex-basis:14.5%" data-label="Login/Help" data-pct="14.5"><span></span></div>
+        <div class="mix-seg c-other" style="flex-basis:5.8%" data-label="Other" data-pct="5.8"><span></span></div>
+        <div class="mix-seg c-prediction" style="flex-basis:2.8%" data-label="Predictions" data-pct="2.8"><span></span></div>
       </div>
     </div>
     <!-- dimers top 100: Utility 41.1 / Transac 26.2 / Home 20.6 / Predictions 5.4 / Other 4.9 / News 1.7 -->
     <div class="mix-row">
       <div class="mix-lbl">dimers.com</div>
       <div class="mix-bar">
-        <div class="mix-seg c-utility" style="flex-basis:41.1%"><span>Schedules 41%</span></div>
-        <div class="mix-seg c-transac" style="flex-basis:26.2%"><span>Sweepstakes 26%</span></div>
-        <div class="mix-seg c-home" style="flex-basis:20.6%"><span>Home 21%</span></div>
-        <div class="mix-seg c-prediction" style="flex-basis:5.4%"><span>Picks 5%</span></div>
-        <div class="mix-seg c-other" style="flex-basis:4.9%"><span></span></div>
-        <div class="mix-seg c-news" style="flex-basis:1.7%"><span></span></div>
+        <div class="mix-seg c-utility" style="flex-basis:41.1%" data-label="Schedules" data-pct="41.1"><span></span></div>
+        <div class="mix-seg c-transac" style="flex-basis:26.2%" data-label="Sweepstakes" data-pct="26.2"><span></span></div>
+        <div class="mix-seg c-home" style="flex-basis:20.6%" data-label="Home" data-pct="20.6"><span></span></div>
+        <div class="mix-seg c-prediction" style="flex-basis:5.4%" data-label="Picks" data-pct="5.4"><span></span></div>
+        <div class="mix-seg c-other" style="flex-basis:4.9%" data-label="Other" data-pct="4.9"><span></span></div>
+        <div class="mix-seg c-news" style="flex-basis:1.7%" data-label="News" data-pct="1.7"><span></span></div>
       </div>
     </div>
   </div>
-
   <div class="mix-legend">
     <div><i style="background:var(--ink)"></i>Utility (scoreboards/schedules/matchups)</div>
     <div><i style="background:var(--gold)"></i>Predictions / Picks</div>
@@ -847,6 +891,65 @@ section{margin-top:56px;scroll-margin-top:calc(var(--header-h) + 18px)}
       const norm=vals.map(v=>{v.querySelectorAll('.rate').forEach(n=>n.remove()); return v.textContent.replace(/\s+/g,' ').trim().toLowerCase();});
       r.style.display=(norm.every(v=>v===norm[0]))?'none':'';
     });
+  });
+
+  document.querySelectorAll('.stack-row').forEach(row=>{
+    const domain=row.querySelector('.lbl')?.textContent?.trim().replace('.com','') || '';
+    const bar=row.querySelector('.stack-bar');
+    if(!bar) return;
+    const nb=Number(bar.dataset.nb||0);
+    const br=Number(bar.dataset.br||0);
+    const nbSpan=bar.querySelector('.stack-nb span');
+    const brSpan=bar.querySelector('.stack-br span');
+    if(nbSpan) nbSpan.textContent=`Non-brand ${Math.round(nb)}%`;
+    if(brSpan) brSpan.textContent=`Brand ${Math.round(br)}%`;
+    if(nb<12 && nbSpan){nbSpan.textContent=''; const p=document.createElement('span'); p.className='out-pill left'; p.textContent=`NB ${Math.round(nb)}%`; bar.appendChild(p);}
+    if(br<12 && brSpan){brSpan.textContent=''; const p=document.createElement('span'); p.className='out-pill right'; p.textContent=`Brand ${Math.round(br)}%`; bar.appendChild(p);}
+    bar.title=`${domain}: Non-brand ${nb.toFixed(2)}% · Brand ${br.toFixed(2)}%`;
+  });
+  const stackBreakdown=document.querySelector('.stack-breakdown');
+  if(stackBreakdown){
+    stackBreakdown.textContent=[...document.querySelectorAll('.stack-row')].map(row=>{
+      const domain=row.querySelector('.lbl')?.textContent?.replace('.com','');
+      const bar=row.querySelector('.stack-bar');
+      if(!domain||!bar) return '';
+      return `${domain}: NB ${Math.round(Number(bar.dataset.nb||0))}% · Brand ${Math.round(Number(bar.dataset.br||0))}%`;
+    }).filter(Boolean).join(' · ');
+  }
+
+  const labelForSeg=(pct,label)=>{
+    if(pct<6) return '';
+    if(pct<10) return `${label} ${Math.round(pct)}%`;
+    return `${label} ${Math.round(pct)}%`;
+  };
+  document.querySelectorAll('.mix-row').forEach(row=>{
+    const domain=row.querySelector('.mix-lbl')?.textContent?.trim() || '';
+    const segs=[...row.querySelectorAll('.mix-seg')];
+    segs.forEach(seg=>{
+      const pct=Number(seg.dataset.pct||0);
+      const label=seg.dataset.label||'';
+      const span=seg.querySelector('span');
+      if(span) span.textContent=labelForSeg(pct,label);
+      seg.title=`${label}: ${pct}%`;
+    });
+    const line=document.createElement('div');
+    line.className='mix-breakdown';
+    line.textContent=`${domain}: `+segs.map(seg=>`${seg.dataset.label} ${Number(seg.dataset.pct).toFixed(1)}%`).join(' · ');
+    row.insertAdjacentElement('afterend',line);
+  });
+
+  document.querySelectorAll('.bl-seg').forEach(seg=>{
+    const txt=seg.textContent.replace(/\s+/g,' ').trim();
+    seg.title=txt;
+  });
+
+  document.querySelectorAll('.onpage thead th .url a').forEach(a=>{
+    try{
+      const u=new URL(a.href);
+      const compact=`${u.hostname}${u.pathname.length>24?`${u.pathname.slice(0,24)}…`:u.pathname}`;
+      a.textContent=compact;
+      a.title=a.href;
+    }catch(_){/* noop */}
   });
 })();
 </script>
